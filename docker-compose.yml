@@ -12,12 +12,14 @@ services:
   sparql:
     image: askomics/virtuoso
     ports: 
-      - "8890:8890"
+      - "${POLIFONIA_SP_ENDP_PORT-8891}:8890"
     volumes:
       - polifonia-kg:/data
     depends_on:
       - "kg-harvester"    
     container_name: polifonia-kg-sparql-endpoint
+    environment:
+      - DBA_PASSWORD=${POLIFONIA_SP_ENDP_PWD-password}
 
 volumes:
 
@@ -26,8 +28,3 @@ volumes:
   # - load by sparql
 
   polifonia-kg:
-
-
-#       -p 1111:1111 \
-#            -e DBA_PASSWORD=dba
-
