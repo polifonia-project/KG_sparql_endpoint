@@ -29,7 +29,7 @@ CONSTRUCT {
 ```
 
 
-Examples queries to navigate through the knowlege graph are in the [query folder](test/queries):
+Examples query to navigate through the knowlege graph are in the [query folder](test/queries):
 
 You can also look at the graphoo images for the ontologies:
 
@@ -40,6 +40,8 @@ You can also look at the graphoo images for the ontologies:
 
 **Note:** ontologies and KGs are still in active development and may slightly be subject to changes. Due to this reason example queries or documentation can have some outdated parts. At the current state, the authoritative source for KG model are always [transformations](https://github.com/polifonia-project/KG_data_transformation#transformations) file listed at the link. You can always double check which files are harvested by [kg-harvester](kg-harvester/Dockerfile) and loaded in the SPARQL endpoint.
 
+
+See also [this issue](https://github.com/polifonia-project/kg_sparql_endpoint/issues/1) linking to other queries for extracting data from the Polifonia KG, these ones will be added to the doc soon.
 
 ## Deploy
 
