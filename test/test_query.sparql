@@ -1,0 +1,22 @@
+PREFIX core:  <https://w3id.org/polifonia/ON/core/> 
+PREFIX pr:    <https://w3id.org/polifonia/resource/> 
+PREFIX mp:    <https://w3id.org/polifonia/ON/musical-performance/> 
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX mc:    <https://w3id.org/polifonia/ON/musical-composition/> 
+PREFIX mf:    <https://w3id.org/polifonia/ON/musical-feature/> 
+PREFIX cm:    <https://w3id.org/polifonia/ON/comparative-measure/> 
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+
+SELECT DISTINCT
+    ?recording
+    ?harmSimilarity
+    ?birthPlace
+WHERE 
+    {
+    ?recording a mp:Recording .
+    ?harmSimilarity a cm:HarmonicSimilarity ;
+                              cm:involves ?recording .
+    ?recording mp:hasRecordingPerformer ?artist .
+    ?artist core:hasBirthPlace ?birthPlace .
+
+} LIMIT 10

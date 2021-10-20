@@ -1,0 +1,33 @@
+services:
+
+  # Collects KG files and ontologies
+  # populates the volume load by SPARQL endpoint
+  kg-harvester:
+    build: ./kg-harvester
+    volumes:
+      - polifonia-kg:/data/
+    container_name: polifonia-kg-harvester
+
+  # SPARQL Endpoint service
+  sparql:
+    image: askomics/virtuoso
+    ports: 
+      - "8890:8890"
+    volumes:
+      - polifonia-kg:/data
+    depends_on:
+      - "kg-harvester"    
+    container_name: polifonia-kg-sparql-endpoint
+
+volumes:
+
+  # Volume with KG data
+  # - populated by kg-harvester
+  # - load by sparql
+
+  polifonia-kg:
+
+
+#       -p 1111:1111 \
+#            -e DBA_PASSWORD=dba
+
