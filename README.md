@@ -9,6 +9,37 @@ Data are modelled according to the [Polifonia Ontology Network](https://github.c
 To deploy the Polifonia KG Sparql Endpoint as a docker service you need [docker](https://docs.docker.com/) and [docker-compose](https://docs.docker.com/compose/) installed on your machine.
 Refer to official documentation for installation.
 
+## Browse the Graph
+
+You can look at the [transformations](https://github.com/polifonia-project/KG_data_transformation#transformations) producing the KG to have an idea of data shape. Transformations are done in pure SPARQL and in the `CONSTRUCT` section you can find the pattern modelling triples.
+
+E.g. 
+
+```
+CONSTRUCT { 
+
+    # Recording
+    ?recordingIRI   a mp:Recording ;
+                    core:hasTitle ?titleIRI ;
+                    core:hasYoutubeID ?youtubeID ;
+                    mp:isRecordingProducedBy ?recordingProcessIRI;
+                    mp:hasRecordingPerformer ?artistIRI .
+    
+    ...
+```
+
+
+Examples queries to navigate through the knowlege graph are in the [query folder](test/queries):
+
+You can also look at the graphoo images for the ontologies:
+
+- [recordings and places](https://github.com/polifonia-project/sonar2021_demo/issues/14#issuecomment-917070412)
+- [harmonic similarity](https://github.com/polifonia-project/sonar2021_demo/issues/21#issuecomment-946827230)
+
+
+
+**Note:** ontologies and KGs are still in active development and may slightly be subject to changes. Due to this reason example queries or documentation can have some outdated parts. At the current state, the authoritative source for KG model are always [transformations](https://github.com/polifonia-project/KG_data_transformation#transformations) file listed at the link. You can always double check which files are harvested by [kg-harvester](kg-harvester/Dockerfile) and loaded in the SPARQL endpoint.
+
 
 ## Deploy
 
