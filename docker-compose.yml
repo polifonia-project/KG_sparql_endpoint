@@ -20,6 +20,7 @@ services:
     container_name: polifonia-kg-sparql-endpoint
     environment:
       - DBA_PASSWORD=${POLIFONIA_SP_ENDP_PWD-password}
+    restart: always
 
 volumes:
 
