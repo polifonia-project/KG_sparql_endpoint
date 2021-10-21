@@ -9,6 +9,8 @@ Data are modelled according to the [Polifonia Ontology Network](https://github.c
 To deploy the Polifonia KG Sparql Endpoint as a docker service you need [docker](https://docs.docker.com/) and [docker-compose](https://docs.docker.com/compose/) installed on your machine.
 Refer to official documentation for installation.
 
+A live version of the sparql endpoint can be found at: https://arco.istc.cnr.it/polifonia/sparql
+
 ## Browse the Graph
 
 You can look at the [transformations](https://github.com/polifonia-project/KG_data_transformation#transformations) producing the KG to have an idea of data shape. Transformations are done in pure SPARQL and in the `CONSTRUCT` section you can find the pattern modelling triples.
