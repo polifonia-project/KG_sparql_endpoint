@@ -7,16 +7,19 @@ PREFIX mf:    <https://w3id.org/polifonia/ON/musical-feature/>
 PREFIX cm:    <https://w3id.org/polifonia/ON/comparative-measure/> 
 PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
 
-SELECT DISTINCT
-    ?recording
-    ?harmSimilarity
-    ?birthPlace
-WHERE 
-    {
-    ?recording a mp:Recording .
-        ?harmSimilarity a cm:HarmonicSimilarity ;
-                                cm:involves ?recording .
-        ?recording mp:hasRecordingPerformer ?artist .
-        ?artist core:hasBirthPlace ?birthPlace .
+SELECT DISTINCT 
+?lyrSim
+WHERE
+{
+    ?lyrSim a cm:LyricLineSimilarity ;
+            cm:involvesRecording ?recordingIRI .
 
-} LIMIT 10
+    ?harmSimilarity a cm:HarmonicSimilarity ;
+                    cm:involves ?recordingIRI .
+
+
+    ?recordingIRI a mp:Recording ;
+#    ?recording mp:hasRecordingPerformer ?artist .
+#    ?artist core:hasBirthPlace ?birthPlace .
+
+}

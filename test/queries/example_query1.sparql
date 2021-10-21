@@ -1,0 +1,38 @@
+PREFIX core:  <https://w3id.org/polifonia/ON/core/> 
+PREFIX pr:    <https://w3id.org/polifonia/resource/> 
+PREFIX mp:    <https://w3id.org/polifonia/ON/musical-performance/> 
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX mc:    <https://w3id.org/polifonia/ON/musical-composition/> 
+PREFIX mf:    <https://w3id.org/polifonia/ON/musical-feature/> 
+PREFIX cm:    <https://w3id.org/polifonia/ON/comparative-measure/> 
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+
+SELECT DISTINCT 
+?titleLabel ?artistLabel ?artistCareerStartLabel
+WHERE
+{
+
+    # Recording involved in ?lyricSym and ?harmSim
+    ?lyrSim a cm:LyricLineSimilarity ;
+            cm:involvesRecording ?recordingIRI .
+
+    ?harmSim a cm:HarmonicSimilarity ;
+                    cm:involves ?recordingIRI .
+
+
+    ?recordingIRI a mp:Recording ;
+                          core:hasTitle ?titleIRI ;
+                          mp:hasRecordingPerformer ?artistIRI .
+
+    ?titleIRI  rdfs:label ?titleLabel .
+
+    ?artistIRI  a core:Agent ; 
+                rdfs:label ?artistLabel ;
+                core:hasBirthPlace ?artistBirthPlaceCodeIRI ;
+                core:hasStartCareerPlace ?artistCareerStartPlaceIRI .
+
+     ?artistBirthPlaceCodeIRI rdfs:label ?artistBirthPlaceLabel .
+     ?artistCareerStartPlaceIRI rdfs:label ?artistCareerStartLabel .
+
+
+}

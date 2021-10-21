@@ -57,6 +57,8 @@ Build command:
 
 `docker-compose build`
 
+#### Run the service
+
 Launch the service (the `-d` flag will detach the process from current terminal):
 
 `docker-compose up -d`
@@ -75,7 +77,7 @@ Delete the volume with old triples and DB data:
 Rebuild 
 
 
-`docker-compose up --build --no-cache`
+`docker-compose build --no-cache`
 
 Note: `--no-cache` flag is needed to download again remote KG triples and ontologies, in case a new version is uploaded.
 
