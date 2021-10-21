@@ -13,7 +13,8 @@ WORKDIR /data/toLoad
 RUN wget https://raw.githubusercontent.com/polifonia-project/KG_data_transformation/master/places_etl/kg/polifonia-kg-places-latest.ttl
 # harmonic similarity
 RUN wget https://raw.githubusercontent.com/polifonia-project/KG_data_transformation/master/harmonic_sim_etl/kg/polifonia-kg-harmonic-sim-latest.ttl
-
+# lyrics line similarities
+RUN wget https://raw.githubusercontent.com/polifonia-project/KG_data_transformation/master/linelyric_sim_etl/kg/polifonia-kg-linelyr-latest.ttl
 
 ### Downloading ontologies
 # cm
