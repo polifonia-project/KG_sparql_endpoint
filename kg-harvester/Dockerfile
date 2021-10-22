@@ -11,8 +11,12 @@ WORKDIR /data/toLoad
 ### Downloading KG triples
 # places
 RUN wget https://raw.githubusercontent.com/polifonia-project/KG_data_transformation/master/places_etl/kg/polifonia-kg-places-latest.ttl
+
 # harmonic similarity
-RUN wget https://raw.githubusercontent.com/polifonia-project/KG_data_transformation/master/harmonic_sim_etl/kg/polifonia-kg-harmonic-sim-latest.ttl
+RUN wget https://github.com/polifonia-project/KG_data_transformation/raw/master/harmonic_sim_etl/kg/polifonia-kg-harmonic-sim-latest.ttl.zip
+RUN unzip polifonia-kg-harmonic-sim-latest.ttl.zip
+RUN rm polifonia-kg-harmonic-sim-latest.ttl.zip
+
 # lyrics line similarities
 RUN wget https://raw.githubusercontent.com/polifonia-project/KG_data_transformation/master/linelyric_sim_etl/kg/polifonia-kg-linelyr-latest.ttl
 
